@@ -9,7 +9,7 @@
 
 ## Install
 
-    $ npm install shared-git-hooks
+    $ npm i shared-git-hooks --save-dev
 
 ## Usage
 
