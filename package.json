@@ -1,0 +1,41 @@
+{
+  "name": "shared-git-hooks",
+  "version": "1.0.0",
+  "description": "Share git hooks across your team through npm install",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "mocha-standard": "^1.0.0",
+    "mock-fs": "^3.6.0",
+    "sinon": "^1.17.2",
+    "standard": "^5.4.1"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test:watch": "nodemon --exec mocha --bail"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kilianc/shared-git-hooks.git"
+  },
+  "keywords": [
+    "git",
+    "hooks"
+  ],
+  "author": "Kilian Ciuffolo <me@nailik.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kilianc/shared-git-hooks/issues"
+  },
+  "homepage": "https://github.com/kilianc/shared-git-hooks#readme",
+  "standard": {
+    "globals": [
+      "before",
+      "describe",
+      "afterEach",
+      "it"
+    ]
+  }
+}
