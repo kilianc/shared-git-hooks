@@ -12,7 +12,7 @@ const HOOK_SCRIPT_PATH = resolve(__dirname, 'hook.sh')
 
 function ensureHooksDirExists (projectPath) {
   let hooksDir = resolve(projectPath, '.git/hooks')
-  !fs.existsSync(hooksDir) && fs.mkdirSync(hooksDir)
+  !doesPathExist(hooksDir) && fs.mkdirSync(hooksDir)
 }
 
 function installHook (hookName, projectPath) {
