@@ -6,6 +6,8 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^3.4.1",
+    "codeclimate-test-reporter": "^0.1.1",
+    "istanbul": "^0.4.1",
     "mocha": "^2.3.4",
     "mocha-standard": "^1.0.0",
     "mock-fs": "^3.6.0",
@@ -13,8 +15,9 @@
     "standard": "^5.4.1"
   },
   "scripts": {
-    "test": "mocha",
-    "test:watch": "nodemon --exec mocha --bail"
+    "test": "$(npm bin)/mocha",
+    "test:watch": "nodemon --exec $(npm bin)/_mocha --bail",
+    "test:coverage": "$(npm bin)/istanbul cover $(npm bin)/_mocha"
   },
   "repository": {
     "type": "git",
