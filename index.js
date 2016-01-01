@@ -19,6 +19,7 @@ function saveHookRunner () {
   let tpl = fs.readFileSync(resolve(__dirname, 'hook.sh.tpl'), 'utf8')
   tpl = tpl.replace('{{PATH}}', process.env.PATH)
   fs.writeFileSync(resolve(__dirname, 'hook.sh'), tpl)
+  fs.lchmodSync(resolve(__dirname, 'hook.sh'), '744')
 }
 
 function installHook (hookName, projectPath) {
