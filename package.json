@@ -17,7 +17,8 @@
   "scripts": {
     "test": "$(npm bin)/mocha",
     "test:watch": "nodemon --exec $(npm bin)/_mocha --bail",
-    "test:coverage": "$(npm bin)/istanbul cover $(npm bin)/_mocha"
+    "test:coverage": "$(npm bin)/istanbul cover $(npm bin)/_mocha",
+    "install": "node index.js"
   },
   "repository": {
     "type": "git",
