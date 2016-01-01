@@ -31,6 +31,17 @@ describe('shared-git-hooks', () => {
     })
   })
 
+  describe('saveHookRunner()', () => {
+    it('should save hook.sh and freeze $PATH', () => {
+      mock({
+        [`${__dirname}/hook.sh.tpl`]: fs.readFileSync(__dirname + '/hook.sh.tpl')
+      })
+      ghooks.saveHookRunner()
+      let runner = fs.readFileSync(__dirname + '/hook.sh').toString()
+      assert.ok(runner.includes(`PATH=${process.env.PATH}`))
+    })
+  })
+
   describe('isAlreadyInstalled()', () => {
     it('should return true if already installed', () => {
       mock({

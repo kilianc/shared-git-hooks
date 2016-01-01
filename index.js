@@ -15,6 +15,12 @@ function ensureHooksDirExists (projectPath) {
   !doesPathExist(hooksDir) && fs.mkdirSync(hooksDir)
 }
 
+function saveHookRunner () {
+  let tpl = fs.readFileSync(resolve(__dirname, 'hook.sh.tpl'), 'utf8')
+  tpl = tpl.replace('{{PATH}}', process.env.PATH)
+  fs.writeFileSync(resolve(__dirname, 'hook.sh'), tpl)
+}
+
 function installHook (hookName, projectPath) {
   var path = resolve(projectPath, '.git/hooks', hookName)
 
@@ -56,6 +62,7 @@ function backup (path) {
 function installHooks (hooks) {
   let projectPath = process.cwd()
   exports.ensureHooksDirExists(projectPath)
+  exports.saveHookRunner()
   hooks.forEach((hookName) => exports.installHook(hookName, projectPath))
 }
 
@@ -64,6 +71,7 @@ exports.ensureHooksDirExists = ensureHooksDirExists
 exports.installHook = installHook
 exports.installHooks = installHooks
 exports.isAlreadyInstalled = isAlreadyInstalled
+exports.saveHookRunner = saveHookRunner
 exports.HOOK_SCRIPT_PATH = HOOK_SCRIPT_PATH
 exports.log = console.log.bind(console)
 

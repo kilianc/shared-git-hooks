@@ -39,7 +39,10 @@ You can also set a `$GIT_HOOKS_PATH` env var and customize your scripts location
 
 ## Assumption
 
-This project assumes that you have a `package.json`, `.git/` and `hooks/` in the root of your project.
+This project assumes that:
+
+* you have a `package.json`, `.git/` and `hooks/` in the root of your project.
+* you want to run your hooks with the same env `$PATH` you have when you run `npm install` *(this will allow git GUI like Tower to access node through `nvm` for example)*
 
 ## Example
 
