@@ -1,7 +1,7 @@
 # `shared-git-hooks`
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-green.svg?style=flat-square)](https://github.com/feross/standard)
-[![build status](https://img.shields.io/travis/kilianc/shared-git-hooks.svg?style=flat-square)](https://app.wercker.com/#applications/567b8fc61e29124443086121)
+[![build status](https://img.shields.io/travis/kilianc/shared-git-hooks.svg?style=flat-square)](https://travis-ci.org/kilianc/shared-git-hooks)
 [![coverage](https://img.shields.io/codeclimate/coverage/github/kilianc/shared-git-hooks.svg?style=flat-square)](https://codeclimate.com/github/kilianc/shared-git-hooks/coverage)
 [![npm version](https://img.shields.io/npm/v/shared-git-hooks.svg?style=flat-square)](https://www.npmjs.com/package/shared-git-hooks)
 [![npm downloads](https://img.shields.io/npm/dm/shared-git-hooks.svg?style=flat-square)](https://www.npmjs.com/package/shared-git-hooks)
