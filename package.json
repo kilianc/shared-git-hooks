@@ -36,9 +36,10 @@
   "homepage": "https://github.com/kilianc/shared-git-hooks#readme",
   "standard": {
     "globals": [
+      "after",
+      "afterEach",
       "before",
       "describe",
-      "afterEach",
       "it"
     ]
   }

@@ -7,6 +7,7 @@
 'use strict'
 
 const fs = require('fs')
+const execSync = require('child_process').execSync
 const assert = require('chai').assert
 const sinon = require('sinon')
 const mock = require('mock-fs')
@@ -20,6 +21,26 @@ describe('shared-git-hooks', () => {
   afterEach(() => {
     mock.restore()
     sandbox.restore()
+  })
+
+  describe('findProjectRoot()', () => {
+    let cwd = process.cwd()
+    execSync('rm -rf test-git-root')
+
+    after(function () {
+      process.chdir(cwd)
+      execSync('rm -rf test-git-root')
+    })
+
+    it('should return the root path of the project', () => {
+      fs.mkdirSync('test-git-root')
+      fs.mkdirSync('test-git-root/foo')
+      fs.mkdirSync('test-git-root/foo/bar')
+      execSync('cd test-git-root && git init')
+      process.chdir('test-git-root/foo/bar')
+      assert.equal(execSync('pwd'), __dirname + '/test-git-root/foo/bar\n')
+      assert.equal(ghooks.findProjectRoot(), __dirname + '/test-git-root')
+    })
   })
 
   describe('ensureHooksDirExists()', () => {

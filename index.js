@@ -7,8 +7,14 @@
 'use strict'
 
 const fs = require('fs')
+const execSync = require('child_process').execSync
 const resolve = require('path').resolve
 const HOOK_SCRIPT_PATH = resolve(__dirname, 'hook.sh')
+
+function findProjectRoot () {
+  let stdout = execSync('git rev-parse --git-dir')
+  return resolve(stdout.toString().replace('\n', ''), '..')
+}
 
 function ensureHooksDirExists (projectPath) {
   let hooksDir = resolve(projectPath, '.git/hooks')
@@ -61,7 +67,7 @@ function backup (path) {
 }
 
 function installHooks (hooks) {
-  let projectPath = process.cwd()
+  let projectPath = exports.findProjectRoot()
   exports.ensureHooksDirExists(projectPath)
   exports.saveHookRunner()
   hooks.forEach((hookName) => exports.installHook(hookName, projectPath))
@@ -69,6 +75,7 @@ function installHooks (hooks) {
 
 exports.backup = backup
 exports.ensureHooksDirExists = ensureHooksDirExists
+exports.findProjectRoot = findProjectRoot
 exports.installHook = installHook
 exports.installHooks = installHooks
 exports.isAlreadyInstalled = isAlreadyInstalled
