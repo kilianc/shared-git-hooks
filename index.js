@@ -107,5 +107,5 @@ if (!module.parent) {
   ])
 
   exports.log()
-  exports.log(`> Please add your scripts in ${__dirname}/hooks or $GIT_HOOKS_PATH\n`)
+  exports.log(`> Please add your scripts in ${exports.findProjectRoot()}/hooks or $GIT_HOOKS_PATH\n`)
 }
