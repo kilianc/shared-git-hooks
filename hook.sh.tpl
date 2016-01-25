@@ -8,5 +8,5 @@ PATH={{PATH}}
 if [ -f "$GIT_HOOK_PATH" ]; then
   echo "> $GIT_HOOK_PATH exists, running"
   echo ""
-  $GIT_HOOK_PATH
+  $GIT_HOOK_PATH $@
 fi
