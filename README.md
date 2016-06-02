@@ -13,27 +13,27 @@
 
 ## Usage
 
-Add your scripts to `./hooks` and name them 1:1 as git hooks:
+Add your scripts to `./hooks` and name them 1:1 as git hooks (optional extension allowed):
 
-    applypatch-msg
-    pre-applypatch
-    post-applypatch
-    pre-commit
-    prepare-commit-msg
-    commit-msg
-    post-commit
-    pre-rebase
-    post-checkout
-    post-merge
-    pre-push
-    pre-receive
-    update
-    post-receive
-    post-update
-    pre-auto-gc
-    post-rewrite
+    applypatch-msg.EXT
+    pre-applypatch.EXT
+    post-applypatch.EXT
+    pre-commit.EXT
+    prepare-commit-msg.EXT
+    commit-msg.EXT
+    post-commit.EXT
+    pre-rebase.EXT
+    post-checkout.EXT
+    post-merge.EXT
+    pre-push.EXT
+    pre-receive.EXT
+    update.EXT
+    post-receive.EXT
+    post-update.EXT
+    pre-auto-gc.EXT
+    post-rewrite.EXT
 
-A generic script symlinked in `.git/hooks` after `npm install`ing your project, will look for a script with a matching name in `./hooks` and run it.
+A generic script is symlinked in `.git/hooks` when you `npm install` your project. The script will look for an executable file with a ~matching name in your `./hooks` and run it if found.
 
 You can also set a `$GIT_HOOKS_PATH` env var and customize your scripts location.
 
@@ -53,6 +53,8 @@ Save the following as `./hooks/pre-commit`
 console.log('refusing all commits!')
 process.exit(1)
 ```
+
+Remember to `chmod +x ./hooks/pre-commit`.
 
 ## Related projects
 
