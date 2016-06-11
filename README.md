@@ -7,7 +7,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/shared-git-hooks.svg?style=flat-square)](https://www.npmjs.com/package/shared-git-hooks)
 [![License](https://img.shields.io/npm/l/shared-git-hooks.svg?style=flat-square)](https://www.npmjs.com/package/shared-git-hooks)
 
-## Install
+## Install (Node.js >= 0.12.0)
 
     $ npm i shared-git-hooks --save-dev
 
