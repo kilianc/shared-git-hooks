@@ -23,7 +23,7 @@ function ensureHooksDirExists (projectPath) {
 
 function saveHookRunner () {
   let tpl = fs.readFileSync(resolve(__dirname, 'hook.sh.tpl'), 'utf8')
-  tpl = tpl.replace('{{PATH}}', process.env.PATH)
+  tpl = tpl.replace('{{PATH}}', execSync('sh -c \'echo ${PATH}\'', {encoding: 'utf-8'}).trim())
   fs.writeFileSync(resolve(__dirname, 'hook.sh'), tpl)
   fs.chmodSync(resolve(__dirname, 'hook.sh'), '744')
 }

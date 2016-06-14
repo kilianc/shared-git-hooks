@@ -59,7 +59,7 @@ describe('shared-git-hooks', () => {
       })
       ghooks.saveHookRunner()
       let runner = fs.readFileSync(__dirname + '/hook.sh').toString()
-      assert.ok(runner.includes(`PATH=${process.env.PATH}`))
+      assert.ok(runner.includes(`PATH="${process.env.PATH}"`))
     })
   })
 
